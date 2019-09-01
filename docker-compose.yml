@@ -48,7 +48,34 @@ services:
     networks:
         internal:
 
+  web01:
+    build: ./challenges/web01/web/
+    restart: always
+    ports:
+      - "10001:80"
+    volumes:
+      - ./challenges/web01/web/pages:/var/www/html
+    networks:
+      default:
+      web01: 
+
+  web01-db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=sample_db
+    volumes:
+      - ./challenges/web01/db/initdb.d:/docker-entrypoint-initdb.d
+      - ./challenges/web01/db/conf.d:/etc/mysql/conf.d
+    networks:
+      web01:
+
 networks:
     default:
+    web01:
+        internal: true
     internal:
         internal: true
