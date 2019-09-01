@@ -55,6 +55,8 @@ services:
       - "10001:80"
     volumes:
       - ./challenges/web01/web/pages:/var/www/html
+    depends_on:
+      - web01-db
     networks:
       default:
       web01: 
@@ -80,6 +82,8 @@ services:
       - "10002:80"
     volumes:
       - ./challenges/web02/web/pages:/var/www/html
+    depends_on:
+      - web02-db
     networks:
       default:
       web02: 

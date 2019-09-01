@@ -9,9 +9,10 @@ CREATE TABLE users (
     comment VARCHAR(32) NOT NULL,
     PRIMARY KEY (id)
 );
-INSERT INTO users (id,name,comment) VALUES (1, '山田課長','働き者');
-INSERT INTO users (id,name,comment) VALUES (2, '田中部長','サボりがち');
-INSERT INTO users (id,name,comment) VALUES (3, 'モナ王','王');
+INSERT INTO users (id,name,comment) VALUES 
+(1, '山田課長','働き者'),
+(2, '寺田副部長','将来有望'),
+(3, '田中部長','とてもいい人');
 
 DROP TABLE IF EXISTS flag;
 CREATE TABLE flag (

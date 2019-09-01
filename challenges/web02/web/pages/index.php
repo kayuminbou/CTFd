@@ -34,7 +34,7 @@
                 $dbh=null;
 
                 if($rec["name"] != ""){
-                    print 'Login Suceeded! But,Flag is not here.</br>
+                    print 'Login Suceeded! But,flag is not here.</br>
                         Hint: the flag is user\'s name.</br>
                         $sql="SELECT * FROM users WHERE name=\'".$name."\' AND password=?"';
                 }
