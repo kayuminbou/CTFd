@@ -29,7 +29,7 @@
             $stmt->execute();
             $dbh=null;
             
-            print '職員一覧<br />';
+            print '社員一覧<br />';
             print '<table border="1">';
             print '<tr>';
             print '<th>名前</th>';
