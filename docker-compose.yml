@@ -109,8 +109,6 @@ services:
     restart: always
     ports:
       - "10003:80"
-    networks:
-      web03:
 
   web03-cr:
     build: ./challenges/web03/crawler/
@@ -123,8 +121,14 @@ services:
       - web03
     cap_add:
       - SYS_ADMIN
-    networks:
-      web03:
+
+  web04:
+    build: ./challenges/web04/web/
+    restart: always
+    ports:
+      - "10004:80"
+    volumes:
+      - ./challenges/web04/web/pages:/var/www/html
 
 networks:
     default:
@@ -132,6 +136,5 @@ networks:
         internal: true
     web02:
         internal: true
-    web03:
     internal:
         internal: true
