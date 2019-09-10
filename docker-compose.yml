@@ -102,6 +102,29 @@ services:
     networks:
       web02:
 
+  web03:
+    build: ./challenges/web03/web/
+    environment: 
+      - FLAG=ctfgate{51mpl3_
+    restart: always
+    ports:
+      - "10003:80"
+    networks:
+      web03:
+
+  web03-cr:
+    build: ./challenges/web03/crawler/
+    environment:
+      - APP_URL_BASE=web03
+      - FLAG=x55_15_fun!}
+    volumes:
+      - ./challenges/web03/crawler:/app
+    depends_on:
+      - web03
+    cap_add:
+      - SYS_ADMIN
+    networks:
+      web03:
 
 networks:
     default:
@@ -109,5 +132,6 @@ networks:
         internal: true
     web02:
         internal: true
+    web03:
     internal:
         internal: true
