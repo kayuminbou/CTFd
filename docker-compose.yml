@@ -129,6 +129,14 @@ services:
       - "10004:80"
     volumes:
       - ./challenges/web04/web/pages:/var/www/html
+  
+  web05:
+    image: httpd:2.4-alpine
+    restart: always
+    ports:
+      - "10005:80"
+    volumes:
+      - ./challenges/web05/web/pages:/usr/local/apache2/htdocs
 
 networks:
     default:

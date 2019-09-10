@@ -1,0 +1,2 @@
+User-agent : *
+Disallow : /2edca575e481696bf3d0e23731ccc4a5/admin.html
