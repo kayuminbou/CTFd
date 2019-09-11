@@ -19,7 +19,10 @@ RUN apk --no-cache add \
         php5-iconv \
     && mkdir /run/apache2
 
+COPY flag /secret-e7787b93439bbdbb1ceb31c5933a20f0
 COPY httpd.conf /etc/apache2/httpd.conf
+COPY php.ini /etc/php5/php.ini
 COPY ./pages /usr/local/apache2/htdocs
+# RUN chown -R apache:apache /usr/local/apache2/htdocs
     
 CMD [ "/usr/sbin/httpd", "-D", "FOREGROUND" ]

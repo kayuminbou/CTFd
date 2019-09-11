@@ -128,7 +128,7 @@ services:
     ports:
       - "10004:80"
     volumes:
-      - ./challenges/web04/web/pages:/var/www/html
+      - ./challenges/web04/web/pages:/usr/local/apache2/htdocs
   
   web05:
     image: httpd:2.4-alpine
@@ -142,15 +142,23 @@ services:
     build: ./challenges/web06/web/
     restart: always
     ports:
-      - "10006:8080"
+      - "10006:80"
     volumes:
-      - ./challenges/web06/web/pages:/app/data/htdocs
+      - ./challenges/web06/web/pages:/usr/local/apache2/htdocs
 
   web07:
     build: ./challenges/web07/web/
     restart: always
     ports:
       - "10007:80"
+
+  web08:
+    build: ./challenges/web08/web/
+    restart: always
+    ports:
+      - "10008:80"
+    volumes:
+      - ./challenges/web08/web/pages:/usr/local/apache2/htdocs
 
 networks:
     default:

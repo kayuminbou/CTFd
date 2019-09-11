@@ -1,17 +1,28 @@
-FROM centos:6.6
-WORKDIR /usr/src
-RUN yum install -y \
-        gcc \
-        php \
-        php-devel \
-        php-mysql \
-        php-pear 
+FROM alpine:3.6
 
-RUN echo 'DirectoryIndex index.html index.html.var index.php index.cgi' >> /etc/httpd/conf/httpd.conf
+# Setup apache and php
+RUN apk --no-cache add \
+        apache2 \
+        php5-apache2 \
+        curl \
+        php5-json \
+        php5-phar \
+        php5-openssl \ 
+        php5-mysql \
+        php5-curl \
+        php5-mcrypt \
+        php5-pdo_mysql \
+        php5-ctype \
+        php5-gd \
+        php5-xml \
+        php5-dom \
+        php5-iconv \
+    && mkdir /run/apache2
 
+RUN apk add --update shadow
 RUN useradd -c ctfgate{c4n_y0u_7r4v3r53?} flag
 
-COPY ./pages /var/www/html
+COPY ./pages /usr/local/apache2/htdocs
+COPY httpd.conf /etc/apache2/httpd.conf
 
-EXPOSE 80
-CMD ["apachectl", "-D", "FOREGROUND"]
+CMD [ "/usr/sbin/httpd", "-D", "FOREGROUND" ]

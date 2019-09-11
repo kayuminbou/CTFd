@@ -7,7 +7,7 @@
 
 <body>
     <?php
-        define('TMPLDIR', '/var/www/html/tmpl/');
+        define('TMPLDIR', './tmpl/');
         $tmpl = filter_input(INPUT_GET, 'year');
     ?>
     <p>日本FP協会の発表している "小学生の「将来なりたい職業」ランキングトップ10" について紹介するサイトです。</p>
