@@ -138,6 +138,14 @@ services:
     volumes:
       - ./challenges/web05/web/pages:/usr/local/apache2/htdocs
 
+  web06:
+    build: ./challenges/web06/web/
+    restart: always
+    ports:
+      - "10006:8080"
+    volumes:
+      - ./challenges/web06/web/pages:/app/data/htdocs
+
 networks:
     default:
     web01:
