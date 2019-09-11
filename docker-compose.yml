@@ -146,6 +146,12 @@ services:
     volumes:
       - ./challenges/web06/web/pages:/app/data/htdocs
 
+  web07:
+    build: ./challenges/web07/web/
+    restart: always
+    ports:
+      - "10007:80"
+
 networks:
     default:
     web01:
