@@ -131,7 +131,7 @@ services:
       - ./challenges/web04/web/pages:/usr/local/apache2/htdocs
   
   web05:
-    image: httpd:2.4-alpine
+    build: ./challenges/web05/web/
     restart: always
     ports:
       - "10005:80"
