@@ -160,11 +160,40 @@ services:
     volumes:
       - ./challenges/web08/web/pages:/usr/local/apache2/htdocs
 
+  web09:
+    build: ./challenges/web09/web/
+    restart: always
+    ports:
+      - "10009:80"
+    volumes:
+      - ./challenges/web09/web/pages:/usr/local/apache2/htdocs
+    depends_on:
+      - web09-db
+    networks:
+      default:
+      web09: 
+
+  web09-db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=sample_db
+    volumes:
+      - ./challenges/web09/db/initdb.d:/docker-entrypoint-initdb.d
+      - ./challenges/web09/db/conf.d:/etc/mysql/conf.d
+    networks:
+      web09:
+
 networks:
     default:
     web01:
         internal: true
     web02:
+        internal: true
+    web09:
         internal: true
     internal:
         internal: true
