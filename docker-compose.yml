@@ -187,6 +187,14 @@ services:
     networks:
       web09:
 
+  web10:
+    build: ./challenges/web10/web/
+    restart: always
+    ports:
+      - "10010:80"
+    volumes:
+      - ./challenges/web10/web/pages:/usr/local/apache2/htdocs
+
 networks:
     default:
     web01:

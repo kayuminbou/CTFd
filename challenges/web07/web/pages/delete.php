@@ -9,7 +9,7 @@
     <?php
     
     $dir = "./upload/" ;
-    if (isset($_POST['image']) || $_POST['image'] != ''){
+    if (isset($_POST['image']) && $_POST['image'] != ''){
         $image = $_POST["image"];
         if( is_dir( $dir ) && $handle = opendir( $dir ) ) {
             while( ($file = readdir($handle)) !== false ) {
