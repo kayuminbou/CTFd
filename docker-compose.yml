@@ -213,6 +213,24 @@ services:
     cap_add:
       - SYS_ADMIN
 
+  web12:
+    build: ./challenges/web12/web/
+    restart: always
+    ports:
+      - "10012:80"
+
+  web12-cr:
+    build: ./challenges/web12/crawler/
+    environment:
+      - APP_URL_BASE=web12
+      - FLAG=ctfgate{d0m_b453d_15_d1ff1cul7_f0r_m3}
+    volumes:
+      - ./challenges/web12/crawler:/app
+    depends_on:
+      - web12
+    cap_add:
+      - SYS_ADMIN
+
 networks:
     default:
     web01:

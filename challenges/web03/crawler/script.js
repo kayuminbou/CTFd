@@ -35,10 +35,10 @@ async function deleteMessage() {
   browser.close();
 }
 
-schedule.scheduleJob('*/1 * * * *', function(){
+schedule.scheduleJob('*/3 * * * *', function(){
   crawling();
 })
 
-schedule.scheduleJob('*/10 * * * *', function(){
+schedule.scheduleJob('*/20 * * * *', function(){
   deleteMessage();
 })

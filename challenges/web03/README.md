@@ -1,9 +1,9 @@
 # [Web 100] My Comment
 
 ## Description
-私はこのメモ帳を毎分チェックしています。
+私はこのメモ帳を頻繁にチェックしています。
 
-I check this notepad every minute.
+I check this notepad frequently.
 
 `http://<redacted>:10003`
 
