@@ -40,7 +40,7 @@ if (!isset($_COOKIE["web03_session"])) {
         </form>
 
         <?php
-            if (isset($_POST['text']) || $_POST['text'] != '') {
+            if (isset($_POST['text']) && $_POST['text'] != '') {
                 $text = $_POST['text'];
                 $arr[] = [
                     'time' => date("Y/m/d H:i:s"),

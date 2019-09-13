@@ -195,6 +195,24 @@ services:
     volumes:
       - ./challenges/web10/web/pages:/usr/local/apache2/htdocs
 
+  web11:
+    build: ./challenges/web11/web/
+    restart: always
+    ports:
+      - "10011:80"
+
+  web11-cr:
+    build: ./challenges/web11/crawler/
+    environment:
+      - APP_URL_BASE=web11
+      - PASS=d027ac1d8b34c6a0c62f52ef1c84e2d5
+    volumes:
+      - ./challenges/web11/crawler:/app
+    depends_on:
+      - web11
+    cap_add:
+      - SYS_ADMIN
+
 networks:
     default:
     web01:
