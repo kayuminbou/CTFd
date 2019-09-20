@@ -215,6 +215,8 @@ services:
 
   web12:
     build: ./challenges/web12/web/
+    environment: 
+      - FILENAME=360cc615784d8b7fd34024420f38b6e0
     restart: always
     ports:
       - "10012:80"
@@ -223,7 +225,7 @@ services:
     build: ./challenges/web12/crawler/
     environment:
       - APP_URL_BASE=web12
-      - FLAG=ctfgate{d0m_b453d_15_d1ff1cul7_f0r_m3}
+      - FLAG=ctfgate{5ch3m3_15_n07_0nly_h77p}
     volumes:
       - ./challenges/web12/crawler:/app
     depends_on:

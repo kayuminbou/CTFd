@@ -11,4 +11,4 @@ Let's challenge XSS!
 https://scrapbox.io/kayuminbou/My_XSS_Challenge
 
 ## Flag
-`ctfgate{d0m_b453d_15_d1ff1cul7_f0r_m3}`
+`ctfgate{5ch3m3_15_n07_0nly_h77p}`

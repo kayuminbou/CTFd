@@ -14,7 +14,8 @@ async function crawling() {
   });
   const page = await browser.newPage();
   await page.setCookie({"domain": url_base, "name": "web12_session", "value": FLAG});
-  await page.goto(`http://${url_base}/`);
+  await page.goto(`http://${url_base}`, {waitUntil: 'networkidle2'});
+  await page.click('#xss');
   console.log("crawling finished!!");
   browser.close();
 }
@@ -34,6 +35,7 @@ async function deleteMessage() {
   console.log("message deleted!!");
   browser.close();
 }
+
 
 schedule.scheduleJob('*/3 * * * *', function(){
   crawling();
